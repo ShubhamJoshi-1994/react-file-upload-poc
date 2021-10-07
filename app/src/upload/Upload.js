@@ -46,6 +46,7 @@ class Upload extends Component {
       const req = new XMLHttpRequest();
 
       req.upload.addEventListener("progress", event => {
+        console.log('progress');
         if (event.lengthComputable) {
           const copy = { ...this.state.uploadProgress };
           copy[file.name] = {
@@ -80,6 +81,7 @@ class Upload extends Component {
 
   renderProgress(file) {
     const uploadProgress = this.state.uploadProgress[file.name];
+    console.log('prog', file.name, uploadProgress);
     if (this.state.uploading || this.state.successfullUploaded) {
       return (
         <div className="ProgressWrapper">
